@@ -32,5 +32,29 @@ namespace HoliDayRental.Handlers
                 NombrePersonnes = bien.NombrePersonnes
             };
         }
+
+        public static BienDetails ToBienDetails(this BienBLL bien)
+        {
+            if (bien is null) return null;
+            return new BienDetails
+            {
+                Id = bien.Id,
+                Titre = bien.Titre,
+                DescLongue = bien.DescLongue,
+                Pays = bien.Pays,
+                Photo = bien.Photo,
+                NombrePersonnes = bien.NombrePersonnes,
+                IdMembre = bien.IdMembre,
+                DateCreation = bien.DateCreation,
+                Longitude = bien.Longitude,
+                Latitude = bien.Latitude,
+                AssuranceObligatoire = bien.AssuranceObligatoire,
+                Ville = bien.Ville,
+                Rue = bien.Rue,
+                Numero = bien.Numero,
+                CodePostal = bien.CodePostal
+
+            };
+        }
     }
 }

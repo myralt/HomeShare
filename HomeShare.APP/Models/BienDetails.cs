@@ -49,9 +49,7 @@ namespace HoliDayRental.Models
         public Option[] Options { get; set; }
 
         //Détails du propriétaire:
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
-        public string MembrePays { get; set; }
+        public BienProprio Proprietaire { get; set; }
 
         //Liste des avis:
         public Avis[] Avis { get; set; }

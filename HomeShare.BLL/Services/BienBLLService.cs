@@ -27,7 +27,7 @@ namespace HomeShare.BLL.Services
 
         public BienBLL Get(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Get(id).ToBienBLL();
         }
 
         public IEnumerable<BienBLL> GetAll()
