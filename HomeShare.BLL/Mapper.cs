@@ -1,8 +1,9 @@
 ﻿using System;
 
+
 namespace HomeShare.BLL
 {
-    public class Class1
+    public static class Mapper
     {
     }
 }
