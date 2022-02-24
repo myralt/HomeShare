@@ -1,4 +1,6 @@
 using HoliDayRental.Infrastructure;
+using HomeShare.BLL;
+using HomeShare.Common.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace HoliDayRental
 {
@@ -32,9 +35,11 @@ namespace HoliDayRental
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
-            });      //permet de configurer les sessions pour mon application
+            });      //permet de configurer les sessions pour l'application
 
             services.AddControllersWithViews();
+
+            //services.AddTransient<IMembreRepository<MembreBLL>, MembreBLLService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

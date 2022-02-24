@@ -1,5 +1,5 @@
 ﻿
-namespace HoliDayRental.DAL.Entities
+namespace HomeShare.DAL.Entities
 {
     public class Membre
     {

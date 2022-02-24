@@ -8,4 +8,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HomeShare.BLL\HomeShare.BLL.csproj" />
+    <ProjectReference Include="..\HomeShare.Common\HomeShare.Common.csproj" />
+  </ItemGroup>
+
 </Project>
