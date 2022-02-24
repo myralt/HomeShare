@@ -16,7 +16,7 @@ namespace HomeShare.DAL
                 Id = (int)record["IdBien"],
                 Titre = (string)record["Titre"],
                 DescCourte = (string)record["DescCourte"],
-                Pays = (string)record["Pays"],
+                Pays = (string)record["Libelle"],
                 Photo = (string)record["Photo"],
                 NombrePersonnes = (int)record["NombrePerson"]
             };

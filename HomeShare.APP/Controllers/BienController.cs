@@ -1,7 +1,11 @@
-﻿using HomeShare.BLL.Entities;
+﻿using HoliDayRental.Handlers;
+using HoliDayRental.Models;
+using HomeShare.BLL.Entities;
 using HomeShare.Common.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace HoliDayRental.Controllers
@@ -18,7 +22,8 @@ namespace HoliDayRental.Controllers
         // GET: BienController
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<BienList> list = _service.GetAll().Select(b => b.ToBienList());
+            return View(list);
         }
 
         // GET: BienController/Details/5
