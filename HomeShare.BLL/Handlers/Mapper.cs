@@ -1,4 +1,5 @@
-﻿using HomeShare.DAL.Entities;
+﻿using HomeShare.BLL.Entities;
+using HomeShare.DAL.Entities;
 using System;
 
 
@@ -18,6 +19,30 @@ namespace HomeShare.BLL.Handlers
                 Login = membre.Login,
                 Password = membre.Password
             };
-        } 
+        }
+        
+        public static BienBLL ToBienBLL(this Bien bien)
+        {
+            if (bien is null) return null;
+            return new BienBLL
+            {
+                Id = bien.Id,
+                Titre = bien.Titre,
+                DescCourte = bien.DescCourte,
+                DescLongue = bien.DescLongue,
+                NombrePersonnes = bien.NombrePersonnes,
+                Pays = bien.Pays,
+                Ville = bien.Ville,
+                Rue = bien.Rue,
+                Numero = bien.Numero,
+                CodePostal = bien.CodePostal,
+                Photo = bien.Photo,
+                AssuranceObligatoire = bien.AssuranceObligatoire,
+                Latitude = bien.Latitude,
+                Longitude = bien.Longitude,
+                DateCreation = bien.DateCreation,
+                IdMembre = bien.IdMembre
+            };
+        }
     }
 }

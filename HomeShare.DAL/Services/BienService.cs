@@ -31,10 +31,12 @@ namespace HomeShare.DAL.Services
                     cmd.CommandText = "SELECT [IdBien], [Photo], [Titre], [DescCourte], [Pays].[Libelle], [NombrePerson] " +
                         "FROM [BienEchange]" +
                         "JOIN [Pays]" +
-                        "ON [BienEchange].[Pays] = [Pays].[IdPays]";
+                        "ON [BienEchange].[Pays] = [Pays].[IdPays]" +
+                        "WHERE [BienEchange].[IsEnabled] = 1";
                     connect.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read()) yield return Mapper.ToBien(reader);
+                    connect.Close();
                 }
             }
         }
