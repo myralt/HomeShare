@@ -29,12 +29,12 @@ namespace HomeShare.DAL.Services
             {
                 using (SqlCommand cmd = connect.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM [Membre] WHERE Email = @email";
-                    SqlParameter email = new SqlParameter { ParameterName = "email", Value = entity.Email };
-                    cmd.Parameters.Add(email);
+                    cmd.CommandText = "SELECT Email FROM [Membre] WHERE Email = @checkEmail";
+                    SqlParameter checkEmail = new SqlParameter { ParameterName = "checkEmail", Value = entity.Email };
+                    cmd.Parameters.Add(checkEmail);
                     connect.Open();
 
-                    if ((bool)cmd.ExecuteScalar()) throw new Exception("Email déjà utilisé");
+                    if (cmd.ExecuteScalar() is not null) throw new Exception("Email déjà utilisé");
                     connect.Close();
 
                     cmd.CommandText = "INSERT INTO [Membre]" +
@@ -43,7 +43,7 @@ namespace HomeShare.DAL.Services
                         "VALUES (@nom, @prenom, @email, @pays, @tel, @login, @pass)";
                     SqlParameter nom = new SqlParameter { ParameterName = "nom", Value = entity.Nom};
                     SqlParameter prenom = new SqlParameter { ParameterName = "prenom", Value = entity.Prenom};
-                    email = new SqlParameter { ParameterName = "email", Value = entity.Email};
+                    SqlParameter email = new SqlParameter { ParameterName = "email", Value = entity.Email};
                     SqlParameter pays = new SqlParameter { ParameterName = "pays", Value = 1};
                     SqlParameter tel = new SqlParameter { ParameterName = "tel", Value = entity.Telephone};
                     SqlParameter login = new SqlParameter { ParameterName = "login", Value = entity.Login};

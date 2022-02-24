@@ -59,7 +59,7 @@ namespace HomeShare.BLL.Entities
 
                 if (email.Length > 50) throw new ArgumentOutOfRangeException(nameof(email));
 
-                //Email validation in MembreClientService
+                //Email validation in MembreService
 
                 _email = email;
             }
@@ -83,18 +83,14 @@ namespace HomeShare.BLL.Entities
 
         public string Login
         {
-            get { return _login; }
-            set 
-            {
-                if (string.IsNullOrWhiteSpace(this.Nom) || string.IsNullOrWhiteSpace(this.Prenom)) 
+            get 
+            { 
+                if (string.IsNullOrWhiteSpace(Nom) || string.IsNullOrWhiteSpace(Prenom)) 
                     throw new FormatException();
-
-                int nomLength = Nom.Length;
-                if (nomLength > 5) nomLength = 5;
                 
-                string login = Prenom[0] + Nom.Substring(0, nomLength);
-                _login = login; 
+                return Prenom[0] + Nom;           
             }
+
         }
         
     }
