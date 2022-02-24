@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HomeShare.BLL.Entities;
+using HomeShare.Common.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -6,6 +8,13 @@ namespace HoliDayRental.Controllers
 {
     public class BienController : Controller
     {
+        private readonly IBienRepository<BienBLL> _service;
+
+        public BienController(IBienRepository<BienBLL> service)
+        {
+            _service = service;
+        }
+
         // GET: BienController
         public IActionResult Index()
         {

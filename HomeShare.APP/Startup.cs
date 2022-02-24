@@ -1,5 +1,6 @@
 using HoliDayRental.Infrastructure;
-using HomeShare.BLL;
+using HomeShare.BLL.Entities;
+using HomeShare.BLL.Services;
 using HomeShare.Common.Repositories;
 using HomeShare.DAL.Entities;
 using HomeShare.DAL.Services;
@@ -43,6 +44,8 @@ namespace HoliDayRental
 
             services.AddTransient<IMembreRepository<Membre>, MembreService>();
             services.AddTransient<IMembreRepository<MembreBLL>, MembreBLLService>();
+            services.AddTransient<IBienRepository<Bien>, BienService>();
+            services.AddTransient<IBienRepository<BienBLL>, BienBLLService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

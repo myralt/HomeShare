@@ -3,9 +3,9 @@ using System;
 using HomeShare.Common.Repositories;
 using HomeShare.DAL.Entities;
 using HomeShare.BLL.Handlers;
+using HomeShare.BLL.Entities;
 
-
-namespace HomeShare.BLL
+namespace HomeShare.BLL.Services
 {
     public class MembreBLLService : IMembreRepository<MembreBLL>
     {

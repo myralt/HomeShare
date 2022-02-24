@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace HomeShare.BLL
+namespace HomeShare.BLL.Entities
 {
     public class MembreBLL
     {

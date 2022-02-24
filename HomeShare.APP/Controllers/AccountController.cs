@@ -1,7 +1,7 @@
 ﻿using HoliDayRental.Handlers;
 using HoliDayRental.Infrastructure.Helpers;
 using HoliDayRental.Models;
-using HomeShare.BLL;
+using HomeShare.BLL.Entities;
 using HomeShare.Common.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,5 +1,6 @@
 ﻿using HoliDayRental.Models;
-using HomeShare.BLL;
+using HomeShare.BLL.Entities;
+
 
 namespace HoliDayRental.Handlers
 {
