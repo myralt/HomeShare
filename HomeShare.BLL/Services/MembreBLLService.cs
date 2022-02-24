@@ -2,6 +2,7 @@
 using System;
 using HomeShare.Common.Repositories;
 using HomeShare.DAL.Entities;
+using HomeShare.BLL.Handlers;
 
 
 namespace HomeShare.BLL
@@ -30,13 +31,9 @@ namespace HomeShare.BLL
             throw new NotImplementedException();
         }
 
-        public void Insert(MembreBLL entity)
+        public int Insert(MembreBLL entity)
         {
-            throw new NotImplementedException();
-            //Normally incoming input is valid and sanitised.
-            //But does the entity exist already?
-            //And is the email address already in use?
-            //Call procedure to insert user and encrypt password.
+            return _repo.Insert(entity.ToMembre());
         }
 
         public void Update(MembreBLL entity)
