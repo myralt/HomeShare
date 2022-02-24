@@ -19,17 +19,20 @@ namespace HoliDayRental.Controllers
             _service = service;
         }
 
-        // GET: BienController
+        //Renvoie une liste complète des biens disponibles
         public IActionResult Index()
         {
             IEnumerable<BienList> list = _service.GetAll().Select(b => b.ToBienList());
             return View(list);
         }
 
-        // GET: BienController/Details/5
+        //Renvoie les détails d'un bien
         public IActionResult Details(int id)
         {
             BienDetails details = _service.Get(id).ToBienDetails();
+            //details.Proprietaire = _service.GetProprio(details.IdMembre).ToBienProprio();
+            //details.Options = _service.GetOptions(details.Id).Select(o => o.ToOption()).ToArray();
+            //details.Avis = _service.GetAvis(details.Id).Select(a => a.TAvis()).ToArray();
             return View(details);
         }
 
