@@ -29,7 +29,8 @@ namespace HoliDayRental.Controllers
         // GET: BienController/Details/5
         public IActionResult Details(int id)
         {
-            return View();
+            BienDetails details = _service.Get(id).ToBienDetails();
+            return View(details);
         }
 
         // GET: BienController/Create

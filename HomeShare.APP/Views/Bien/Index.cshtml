@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<HoliDayRental.Models.BienList>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Visiter tous nos biens";
 }
 
-<h1>Index</h1>
+<h1 class="text-center text-primary">Visiter tous nos biens</h1>
 
 <table class="table">
     <thead>
@@ -46,9 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Photo)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <button class="btn btn-primary" onclick="window.location.href='./Bien/Details/@item.Id'">Détails</button>
             </td>
         </tr>
 }
