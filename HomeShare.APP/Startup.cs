@@ -39,7 +39,7 @@ namespace HoliDayRental
 
             services.AddControllersWithViews();
 
-            services.AddTransient<IMembreRepository<MembreBLL>, MembreBLLService>();
+            //services.AddTransient<IMembreRepository<MembreBLL>, MembreBLLService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
