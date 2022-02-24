@@ -1,6 +1,8 @@
 using HoliDayRental.Infrastructure;
 using HomeShare.BLL;
 using HomeShare.Common.Repositories;
+using HomeShare.DAL.Entities;
+using HomeShare.DAL.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +41,8 @@ namespace HoliDayRental
 
             services.AddControllersWithViews();
 
-            //services.AddTransient<IMembreRepository<MembreBLL>, MembreBLLService>();
+            services.AddTransient<IMembreRepository<Membre>, MembreService>();
+            services.AddTransient<IMembreRepository<MembreBLL>, MembreBLLService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

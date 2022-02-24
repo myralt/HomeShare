@@ -5,12 +5,12 @@ namespace HomeShare.DAL.Entities
 {
     public class Bien
     {
-        public int IdBien { get; set; }
+        public int Id { get; set; }
         public string Titre { get; set; }
         public string DescCourte { get; set; }
         public string DescLongue { get; set; }
         public int NombrePersonnes { get; set; }
-        public int Pays { get; set; }
+        public string Pays { get; set; }
         public string Ville { get; set; }
         public string Rue { get; set; }
         public string Numero { get; set; }
