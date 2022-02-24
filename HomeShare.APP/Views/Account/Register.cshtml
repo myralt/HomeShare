@@ -1,0 +1,57 @@
+﻿@model HoliDayRental.Models.AccountRegisterForm
+
+@{
+    ViewData["Title"] = "Enregistrer un nouveau compte";
+}
+
+<h1 class="text-center text-primary">Enregistrez-vous</h1>
+
+<hr />
+<div id="loginpop">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-sm-12 login">
+                    <form asp-controller="Account" asp-action="Register" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input type="text" asp-for="Nom" minlength="1" maxlength="50" class="form-control" placeholder="Smith" required/>
+                            <span asp-validation-for="Nom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" asp-for="Prenom" minlength="1" maxlength="50" class="form-control" placeholder="John" required/>
+                            <span asp-validation-for="Prenom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" asp-for="Email" minlength="1" maxlength="256" class="form-control" placeholder="john@example.com" required/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" asp-for="Telephone" minlength="1" maxlength="20" class="form-control" placeholder="555-563698" required/>
+                            <span asp-validation-for="Telephone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" asp-for="MotdePasse" minlength="1" maxlength="256" class="form-control" placeholder="Mot de passe" required/>
+                            <span asp-validation-for="MotdePasse" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" asp-for="ReMotdePasse" minlength="1" maxlength="256" class="form-control" placeholder="Répétez le mot de passe" required/>
+                            <span asp-validation-for="ReMotdePasse" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" asp-for="Conditions" class="form-check-input" required/>
+                            J'accepte les <a href="#">conditions générales du site.</a>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="S'enregistrer" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Retour</a>
+</div>
