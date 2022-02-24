@@ -16,9 +16,21 @@ namespace HomeShare.DAL
                 Id = (int)record["IdBien"],
                 Titre = (string)record["Titre"],
                 DescCourte = (string)record["DescCourte"],
+                DescLongue = (string)record["DescLong"],
+                NombrePersonnes = (int)record["NombrePerson"],
                 Pays = (string)record["Libelle"],
+                Ville = (string)record["Ville"],
+                Rue = (string)record["Rue"],
+                Numero = (string)record["Numero"],
+                CodePostal = (string)record["CodePostal"],
                 Photo = (string)record["Photo"],
-                NombrePersonnes = (int)record["NombrePerson"]
+                AssuranceObligatoire = (bool)record["AssuranceObligatoire"],
+                IdMembre = (int)record["IdMembre"],
+                IsEnabled = (bool)record["IsEnabled"],
+                DisabledDate = (record["DisabledDate"] is DBNull) ? null : (DateTime?)record["DisabledDate"],
+                Latitude = (string)record["Latitude"],
+                Longitude = (string)record["Longitude"],
+                DateCreation = (DateTime)record["DateCreation"]
             };
         }
     }

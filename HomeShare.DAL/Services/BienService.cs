@@ -19,7 +19,22 @@ namespace HomeShare.DAL.Services
 
         public Bien Get(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connect = new SqlConnection(_connection))
+            {
+                using (SqlCommand cmd = connect.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM [BienEchange] " +
+                        "JOIN [Pays]" +
+                        "ON [BienEchange].[Pays] = [Pays].[IdPays]" +
+                        "WHERE [BienEchange].[IsEnabled] = 1 AND [IdBien] = @Id";
+                    SqlParameter checkId = new SqlParameter { ParameterName = "Id", Value = id };
+                    cmd.Parameters.Add(checkId);
+                    connect.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read()) return Mapper.ToBien(reader);
+                    return null;
+                }
+            }
         }
 
         public IEnumerable<Bien> GetAll()
@@ -28,8 +43,7 @@ namespace HomeShare.DAL.Services
             {
                 using (SqlCommand cmd = connect.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT [IdBien], [Photo], [Titre], [DescCourte], [Pays].[Libelle], [NombrePerson] " +
-                        "FROM [BienEchange]" +
+                    cmd.CommandText = "SELECT * FROM [BienEchange]" +
                         "JOIN [Pays]" +
                         "ON [BienEchange].[Pays] = [Pays].[IdPays]" +
                         "WHERE [BienEchange].[IsEnabled] = 1";
